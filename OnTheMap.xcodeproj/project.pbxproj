@@ -13,7 +13,36 @@
 		D14E0601244E351A00413825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14E05FF244E351A00413825 /* Main.storyboard */; };
 		D14E0603244E351C00413825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14E0602244E351C00413825 /* Assets.xcassets */; };
 		D14E0606244E351C00413825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14E0604244E351C00413825 /* LaunchScreen.storyboard */; };
+		D14E060F244E370400413825 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E060E244E370400413825 /* StudentLocation.swift */; };
+		D14E0619244E39F200413825 /* ModelForPlayGround.h in Headers */ = {isa = PBXBuildFile; fileRef = D14E0617244E39F200413825 /* ModelForPlayGround.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D14E061C244E39F200413825 /* ModelForPlayGround.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14E0615244E39F200413825 /* ModelForPlayGround.framework */; };
+		D14E061D244E39F200413825 /* ModelForPlayGround.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D14E0615244E39F200413825 /* ModelForPlayGround.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D14E0622244E3A0300413825 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E060E244E370400413825 /* StudentLocation.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D14E061A244E39F200413825 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D14E05EE244E351A00413825 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D14E0614244E39F200413825;
+			remoteInfo = ModelForPlayGround;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D14E0621244E39F200413825 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D14E061D244E39F200413825 /* ModelForPlayGround.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D14E05F6244E351A00413825 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +53,28 @@
 		D14E0602244E351C00413825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D14E0605244E351C00413825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D14E0607244E351C00413825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D14E060E244E370400413825 /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		D14E0615244E39F200413825 /* ModelForPlayGround.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModelForPlayGround.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D14E0617244E39F200413825 /* ModelForPlayGround.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelForPlayGround.h; sourceTree = "<group>"; };
+		D14E0618244E39F200413825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D14E0623244E3B9D00413825 /* GetStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetStudent.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D14E0625244E3D3000413825 /* PostStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostStudent.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D14E0627244E3E2E00413825 /* PutStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PutStudent.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D14E0629244E462B00413825 /* PostSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostSession.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D14E062A244E54F800413825 /* DeleteSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DeleteSession.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D14E062B244E578000413825 /* GetUserPublicData.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetUserPublicData.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D14E05F3244E351A00413825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D14E061C244E39F200413825 /* ModelForPlayGround.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D14E0612244E39F200413825 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,7 +87,14 @@
 		D14E05ED244E351A00413825 = {
 			isa = PBXGroup;
 			children = (
+				D14E062B244E578000413825 /* GetUserPublicData.playground */,
+				D14E062A244E54F800413825 /* DeleteSession.playground */,
+				D14E0629244E462B00413825 /* PostSession.playground */,
+				D14E0627244E3E2E00413825 /* PutStudent.playground */,
+				D14E0625244E3D3000413825 /* PostStudent.playground */,
+				D14E0623244E3B9D00413825 /* GetStudent.playground */,
 				D14E05F8244E351A00413825 /* OnTheMap */,
+				D14E0616244E39F200413825 /* ModelForPlayGround */,
 				D14E05F7244E351A00413825 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				D14E05F6244E351A00413825 /* OnTheMap.app */,
+				D14E0615244E39F200413825 /* ModelForPlayGround.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +111,7 @@
 		D14E05F8244E351A00413825 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				D14E060D244E36EA00413825 /* Model */,
 				D14E05F9244E351A00413825 /* AppDelegate.swift */,
 				D14E05FB244E351A00413825 /* SceneDelegate.swift */,
 				D14E05FD244E351A00413825 /* ViewController.swift */,
@@ -67,7 +123,35 @@
 			path = OnTheMap;
 			sourceTree = "<group>";
 		};
+		D14E060D244E36EA00413825 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D14E060E244E370400413825 /* StudentLocation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D14E0616244E39F200413825 /* ModelForPlayGround */ = {
+			isa = PBXGroup;
+			children = (
+				D14E0617244E39F200413825 /* ModelForPlayGround.h */,
+				D14E0618244E39F200413825 /* Info.plist */,
+			);
+			path = ModelForPlayGround;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D14E0610244E39F200413825 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D14E0619244E39F200413825 /* ModelForPlayGround.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		D14E05F5244E351A00413825 /* OnTheMap */ = {
@@ -77,15 +161,35 @@
 				D14E05F2244E351A00413825 /* Sources */,
 				D14E05F3244E351A00413825 /* Frameworks */,
 				D14E05F4244E351A00413825 /* Resources */,
+				D14E0621244E39F200413825 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D14E061B244E39F200413825 /* PBXTargetDependency */,
 			);
 			name = OnTheMap;
 			productName = OnTheMap;
 			productReference = D14E05F6244E351A00413825 /* OnTheMap.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D14E0614244E39F200413825 /* ModelForPlayGround */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D14E061E244E39F200413825 /* Build configuration list for PBXNativeTarget "ModelForPlayGround" */;
+			buildPhases = (
+				D14E0610244E39F200413825 /* Headers */,
+				D14E0611244E39F200413825 /* Sources */,
+				D14E0612244E39F200413825 /* Frameworks */,
+				D14E0613244E39F200413825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModelForPlayGround;
+			productName = ModelForPlayGround;
+			productReference = D14E0615244E39F200413825 /* ModelForPlayGround.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +202,9 @@
 				ORGANIZATIONNAME = "LALIT JAGTAP";
 				TargetAttributes = {
 					D14E05F5244E351A00413825 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					D14E0614244E39F200413825 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
@@ -116,6 +223,7 @@
 			projectRoot = "";
 			targets = (
 				D14E05F5244E351A00413825 /* OnTheMap */,
+				D14E0614244E39F200413825 /* ModelForPlayGround */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +239,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D14E0613244E39F200413825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -138,13 +253,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14E060F244E370400413825 /* StudentLocation.swift in Sources */,
 				D14E05FE244E351A00413825 /* ViewController.swift in Sources */,
 				D14E05FA244E351A00413825 /* AppDelegate.swift in Sources */,
 				D14E05FC244E351A00413825 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D14E0611244E39F200413825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D14E0622244E3A0300413825 /* StudentLocation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D14E061B244E39F200413825 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D14E0614244E39F200413825 /* ModelForPlayGround */;
+			targetProxy = D14E061A244E39F200413825 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D14E05FF244E351A00413825 /* Main.storyboard */ = {
@@ -283,6 +415,7 @@
 		D14E060B244E351C00413825 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E2T7T7WYNN;
@@ -301,6 +434,7 @@
 		D14E060C244E351C00413825 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E2T7T7WYNN;
@@ -313,6 +447,60 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D14E061F244E39F200413825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = E2T7T7WYNN;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ModelForPlayGround/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jagtap.lalit.ModelForPlayGround;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D14E0620244E39F200413825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = E2T7T7WYNN;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ModelForPlayGround/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jagtap.lalit.ModelForPlayGround;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -333,6 +521,15 @@
 			buildConfigurations = (
 				D14E060B244E351C00413825 /* Debug */,
 				D14E060C244E351C00413825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D14E061E244E39F200413825 /* Build configuration list for PBXNativeTarget "ModelForPlayGround" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D14E061F244E39F200413825 /* Debug */,
+				D14E0620244E39F200413825 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
