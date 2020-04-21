@@ -39,3 +39,12 @@ struct Session: Codable {
         case expiration
     }
 }
+
+// MARK: - UdacityLogin
+struct SessionResponse: Codable {
+    let session: Session
+    
+    enum CodingKeys: String, CodingKey {
+        case session
+    }
+}

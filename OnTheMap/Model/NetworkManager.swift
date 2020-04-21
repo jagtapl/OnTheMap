@@ -27,6 +27,7 @@ class NetworkManager {
         
         case login
         case logout
+        case webSignUp
         
         var stringValue: String {
             switch self {
@@ -34,6 +35,8 @@ class NetworkManager {
                 return Endpoints.baseURL + ""
             case .logout:
                 return Endpoints.baseURL + ""
+            case .webSignUp:
+                return "https://auth.udacity.com/sign-up"
             }
         }
         
@@ -46,12 +49,50 @@ class NetworkManager {
         return Auth.loginResponse?.account.key ?? ""
     }
     
+    func logout(completion: @escaping (Bool, Error?) -> Void) {
+
+        var request = URLRequest(url: Endpoints.logout.url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+
+        let sharedCookieStorage = HTTPCookieStorage.shared
+
+        for cookie in sharedCookieStorage.cookies! {
+          if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+
+        if let xsrfCookie = xsrfCookie {
+          request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+
+//        print("execute DELETE session request \(request)")
+
+        taskSessionRequest(urlRequest: request, response: SessionResponse.self) { (response, error) in
+            if let response = response {
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        }
+    }
+    
     func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+        
         let loginRequest = LoginRequest(username: username, password: password)
         let udacityLogin = UdacityLogin(udacity: loginRequest)
-        
 
-        taskForPOSTRequest(url: Endpoints.login.url, response: LoginResponse.self, body: udacityLogin) { (response, error) in
+        var request = URLRequest(url: Endpoints.login.url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let body = udacityLogin
+        let encoder = JSONEncoder()
+        request.httpBody = try! encoder.encode(body)
+        
+//        print("execute POST session request \(request)")
+        
+        taskSessionRequest(urlRequest: request, response: LoginResponse.self) { (response, error) in
             if let response = response {
                 Auth.loginResponse = response
                 completion(true, nil)
@@ -61,20 +102,9 @@ class NetworkManager {
         }
     }
     
-    func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, response: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
-    
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    func taskSessionRequest<ResponseType: Decodable>(urlRequest: URLRequest, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
 
-        let body = body
-        let encoder = JSONEncoder()
-        request.httpBody = try! encoder.encode(body)
-        
-        print("execute POST session request \(request)")
-
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard let data = data else {
                 DispatchQueue.main.async {
                     completion(nil, error)
@@ -84,7 +114,7 @@ class NetworkManager {
             
             let range = (5..<data.count)
             let newData = data.subdata(in: range)
-            print(String(data: newData, encoding: .utf8)!)
+//            print(String(data: newData, encoding: .utf8)!)
 
             do {
                 let decoder = JSONDecoder()

@@ -65,6 +65,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZi-zv-LXo" userLabel="Sign Up Via Website">
                                         <rect key="frame" x="187" y="0.0" width="57" height="30"/>
                                         <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signUpViaWebsiteTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q0S-8b-h5m"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -88,7 +91,6 @@
                         <outlet property="emailTextField" destination="UKq-ae-2ST" id="UTs-sZ-syG"/>
                         <outlet property="loginButton" destination="7il-tN-3vT" id="oNa-ry-xkg"/>
                         <outlet property="passwordTextField" destination="ab3-8N-T7Q" id="TCT-ob-1TJ"/>
-                        <outlet property="signUpViaWebsiteButton" destination="gZi-zv-LXo" id="7Su-Gt-p4c"/>
                         <segue destination="J64-lj-8Qh" kind="show" identifier="completeLogin" id="Lal-tO-hfq"/>
                     </connections>
                 </viewController>

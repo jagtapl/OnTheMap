@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpViaWebsiteButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
@@ -29,8 +28,21 @@ class LoginViewController: UIViewController {
         loginButton.isEnabled = !loggingIn
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view Did Apprear")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("view Did Load")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        print("view Will Appear")
+
         
         emailTextField.text = ""
         passwordTextField.text = ""
@@ -40,25 +52,12 @@ class LoginViewController: UIViewController {
         setLogingIn(true)
         
         NetworkManager.shared.login(username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
-        
-//        TMDBClient.getRequestToken(completion: handleRequstTokenResponse(success:error:))
     }
     
-//    func handleRequstTokenResponse(success: Bool, error: Error?) {
-//        if success {
-//            TMDBClient.login(username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
-//        } else {
-//            showLoginFailure(message: error?.localizedDescription ?? "")
-//        }
-//    }
-    
-    @IBAction func loginViaWebsiteTapped() {
+    @IBAction func signUpViaWebsiteTapped() {
         setLogingIn(true)
-//        TMDBClient.getRequestToken { (success, error) in
-//            if success {
-//                UIApplication.shared.open(TMDBClient.Endpoints.webAuth.url, options: [:], completionHandler: nil)
-//            }
-//        }
+
+        UIApplication.shared.open(NetworkManager.Endpoints.webSignUp.url, options: [:], completionHandler: nil)
     }
     
     
@@ -66,22 +65,11 @@ class LoginViewController: UIViewController {
         setLogingIn(false)
         
         if success {
-//            TMDBClient.createSession(completion: handleSessionResponse(success:error:))
             self.performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
             showLoginFailure(message: error?.localizedDescription ?? "")
         }
     }
-    
-//    func handleSessionResponse(success: Bool, error: Error?) {
-//        setLogingIn(false)
-//
-//        if success {
-//            self.performSegue(withIdentifier: "completeLogin", sender: nil)
-//        } else {
-//            showLoginFailure(message: error?.localizedDescription ?? "")
-//        }
-//    }
     
     
     func showLoginFailure(message: String) {
