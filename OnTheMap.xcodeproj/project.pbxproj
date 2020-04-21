@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D14E05FA244E351A00413825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E05F9244E351A00413825 /* AppDelegate.swift */; };
 		D14E05FC244E351A00413825 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E05FB244E351A00413825 /* SceneDelegate.swift */; };
-		D14E05FE244E351A00413825 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E05FD244E351A00413825 /* ViewController.swift */; };
+		D14E05FE244E351A00413825 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E05FD244E351A00413825 /* LoginViewController.swift */; };
 		D14E0601244E351A00413825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14E05FF244E351A00413825 /* Main.storyboard */; };
 		D14E0603244E351C00413825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14E0602244E351C00413825 /* Assets.xcassets */; };
 		D14E0606244E351C00413825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14E0604244E351C00413825 /* LaunchScreen.storyboard */; };
@@ -18,6 +18,10 @@
 		D14E061C244E39F200413825 /* ModelForPlayGround.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14E0615244E39F200413825 /* ModelForPlayGround.framework */; };
 		D14E061D244E39F200413825 /* ModelForPlayGround.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D14E0615244E39F200413825 /* ModelForPlayGround.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D14E0622244E3A0300413825 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E060E244E370400413825 /* StudentLocation.swift */; };
+		D14E0630244E8C4E00413825 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E062F244E8C4E00413825 /* NetworkManager.swift */; };
+		D14E0632244E913700413825 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E0631244E913700413825 /* LoginRequest.swift */; };
+		D1BA76FC244F1A1A00EF6615 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA76FB244F1A1A00EF6615 /* LoginResponse.swift */; };
+		D1BA76FE244F467B00EF6615 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA76FD244F467B00EF6615 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +52,7 @@
 		D14E05F6244E351A00413825 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14E05F9244E351A00413825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D14E05FB244E351A00413825 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D14E05FD244E351A00413825 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D14E05FD244E351A00413825 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D14E0600244E351A00413825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D14E0602244E351C00413825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D14E0605244E351C00413825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +67,10 @@
 		D14E0629244E462B00413825 /* PostSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostSession.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D14E062A244E54F800413825 /* DeleteSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DeleteSession.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D14E062B244E578000413825 /* GetUserPublicData.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetUserPublicData.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D14E062F244E8C4E00413825 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D14E0631244E913700413825 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		D1BA76FB244F1A1A00EF6615 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		D1BA76FD244F467B00EF6615 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +95,7 @@
 		D14E05ED244E351A00413825 = {
 			isa = PBXGroup;
 			children = (
-				D14E062B244E578000413825 /* GetUserPublicData.playground */,
-				D14E062A244E54F800413825 /* DeleteSession.playground */,
-				D14E0629244E462B00413825 /* PostSession.playground */,
-				D14E0627244E3E2E00413825 /* PutStudent.playground */,
-				D14E0625244E3D3000413825 /* PostStudent.playground */,
-				D14E0623244E3B9D00413825 /* GetStudent.playground */,
+				D14E062E244E736400413825 /* Playgrounds */,
 				D14E05F8244E351A00413825 /* OnTheMap */,
 				D14E0616244E39F200413825 /* ModelForPlayGround */,
 				D14E05F7244E351A00413825 /* Products */,
@@ -114,11 +117,12 @@
 				D14E060D244E36EA00413825 /* Model */,
 				D14E05F9244E351A00413825 /* AppDelegate.swift */,
 				D14E05FB244E351A00413825 /* SceneDelegate.swift */,
-				D14E05FD244E351A00413825 /* ViewController.swift */,
+				D14E05FD244E351A00413825 /* LoginViewController.swift */,
 				D14E05FF244E351A00413825 /* Main.storyboard */,
 				D14E0602244E351C00413825 /* Assets.xcassets */,
 				D14E0604244E351C00413825 /* LaunchScreen.storyboard */,
 				D14E0607244E351C00413825 /* Info.plist */,
+				D1BA76FD244F467B00EF6615 /* ResultsViewController.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -127,6 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				D14E060E244E370400413825 /* StudentLocation.swift */,
+				D14E062F244E8C4E00413825 /* NetworkManager.swift */,
+				D14E0631244E913700413825 /* LoginRequest.swift */,
+				D1BA76FB244F1A1A00EF6615 /* LoginResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +145,19 @@
 				D14E0618244E39F200413825 /* Info.plist */,
 			);
 			path = ModelForPlayGround;
+			sourceTree = "<group>";
+		};
+		D14E062E244E736400413825 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				D14E062B244E578000413825 /* GetUserPublicData.playground */,
+				D14E062A244E54F800413825 /* DeleteSession.playground */,
+				D14E0629244E462B00413825 /* PostSession.playground */,
+				D14E0627244E3E2E00413825 /* PutStudent.playground */,
+				D14E0625244E3D3000413825 /* PostStudent.playground */,
+				D14E0623244E3B9D00413825 /* GetStudent.playground */,
+			);
+			name = Playgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +274,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D14E060F244E370400413825 /* StudentLocation.swift in Sources */,
-				D14E05FE244E351A00413825 /* ViewController.swift in Sources */,
+				D14E05FE244E351A00413825 /* LoginViewController.swift in Sources */,
+				D14E0630244E8C4E00413825 /* NetworkManager.swift in Sources */,
+				D14E0632244E913700413825 /* LoginRequest.swift in Sources */,
 				D14E05FA244E351A00413825 /* AppDelegate.swift in Sources */,
 				D14E05FC244E351A00413825 /* SceneDelegate.swift in Sources */,
+				D1BA76FC244F1A1A00EF6615 /* LoginResponse.swift in Sources */,
+				D1BA76FE244F467B00EF6615 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

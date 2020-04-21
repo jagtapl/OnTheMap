@@ -27,6 +27,13 @@ let body =
 """
 
 /* good reply
+ {"account":{"registered":true,"key":"759944012175"},"session":{"id":"0434731697S9bbdc119fcac818028c942c1766a6091","expiration":"2020-04-22T15:40:08.136972Z"}}
+ 
+ {"account":{"registered":true,"key":"8278019358"},"session":{"id":"6657274553S32aa2bb11732ca5cc13df47aeda799c2","expiration":"2020-04-22T15:37:46.190910Z"}}
+ logout 8278019358 from Udacity
+ 
+ {"account":{"registered":true,"key":"33562300"},"session":{"id":"1122878773S818386fa2c6a4d37a9c35bcfaacb638d","expiration":"2020-04-22T14:24:22.203805Z"}}
+ 
  {"account":{"registered":true,"key":"41183074"},"session":{"id":"3138890281S73f7fe87ded70cc155a2229724e9d78e","expiration":"2020-04-21T21:53:16.535531Z"}}
 
  for

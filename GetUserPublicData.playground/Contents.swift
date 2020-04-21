@@ -15,8 +15,9 @@ var urlString = ""
 
 // Add new student location
 //urlString = "https://onthemap-api.udacity.com/v1/users/jagtap_lalit@yahoo.com"
-urlString = "https://onthemap-api.udacity.com/v1/users/jagtap.lalit@gmail.com"
-
+//urlString = "https://onthemap-api.udacity.com/v1/users/jagtap.lalit@gmail.com"
+//urlString = "https://onthemap-api.udacity.com/v1/users/41183074"
+urlString = "https://onthemap-api.udacity.com/v1/users/663134476073"
 
 let url = URL(string: urlString)
 var request = URLRequest(url: url!)
