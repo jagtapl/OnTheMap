@@ -58,6 +58,8 @@ class LoginViewController: UIViewController {
         setLogingIn(true)
 
         UIApplication.shared.open(NetworkManager.Endpoints.webSignUp.url, options: [:], completionHandler: nil)
+        
+        setLogingIn(false)
     }
     
     

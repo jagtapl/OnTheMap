@@ -16,14 +16,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-RE-8v6">
-                                <rect key="frame" x="143" y="154" width="128" height="160"/>
+                                <rect key="frame" x="143" y="94" width="128" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="1en-zy-hl0"/>
                                     <constraint firstAttribute="width" constant="128" id="MxK-ev-TDz"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="DW8-DQ-2ft">
-                                <rect key="frame" x="50" y="404" width="314" height="195"/>
+                                <rect key="frame" x="50" y="304" width="314" height="195"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OVv-vM-BX8">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="195"/>
@@ -54,7 +54,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MNy-7m-FPt">
-                                <rect key="frame" x="85" y="649" width="244" height="30"/>
+                                <rect key="frame" x="50" y="549" width="314" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDa-jT-ql8">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
@@ -62,8 +62,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZi-zv-LXo" userLabel="Sign Up Via Website">
-                                        <rect key="frame" x="187" y="0.0" width="57" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZi-zv-LXo" userLabel="Sign Up Via Website">
+                                        <rect key="frame" x="187" y="0.0" width="127" height="30"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="signUpViaWebsiteTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q0S-8b-h5m"/>
@@ -75,13 +75,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="MNy-7m-FPt" firstAttribute="top" secondItem="DW8-DQ-2ft" secondAttribute="bottom" constant="50" id="0lw-LD-gIb"/>
-                            <constraint firstItem="d4Y-RE-8v6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="87p-G6-3Xj"/>
+                            <constraint firstItem="d4Y-RE-8v6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="87p-G6-3Xj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DW8-DQ-2ft" secondAttribute="trailing" constant="50" id="9w6-26-OdH"/>
-                            <constraint firstItem="d4Y-RE-8v6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="Z57-mg-Chy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d4Y-RE-8v6" secondAttribute="trailing" constant="143" id="iYd-cX-Dgi"/>
-                            <constraint firstItem="DW8-DQ-2ft" firstAttribute="top" secondItem="d4Y-RE-8v6" secondAttribute="bottom" constant="90" id="jj2-Ni-g6Q"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MNy-7m-FPt" secondAttribute="trailing" constant="85" id="mld-d7-EZm"/>
-                            <constraint firstItem="MNy-7m-FPt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="rX4-Xc-yRe"/>
+                            <constraint firstItem="d4Y-RE-8v6" firstAttribute="centerX" secondItem="DW8-DQ-2ft" secondAttribute="centerX" id="VCM-zU-rj3"/>
+                            <constraint firstItem="DW8-DQ-2ft" firstAttribute="top" secondItem="d4Y-RE-8v6" secondAttribute="bottom" constant="50" id="jj2-Ni-g6Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MNy-7m-FPt" secondAttribute="trailing" constant="50" id="mld-d7-EZm"/>
+                            <constraint firstItem="MNy-7m-FPt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="rX4-Xc-yRe"/>
                             <constraint firstItem="DW8-DQ-2ft" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ulc-IB-z5J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
