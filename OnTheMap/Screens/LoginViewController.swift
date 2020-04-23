@@ -51,6 +51,12 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: UIButton) {
         setLogingIn(true)
         
+        if ((self.emailTextField.text?.count == 0) || (self.passwordTextField.text?.count == 0)) {
+            showLoginFailure(message: "You must provide login user and password")
+            setLogingIn(false)
+            return
+        }
+        
         NetworkManager.shared.login(username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
     }
     
@@ -77,7 +83,8 @@ class LoginViewController: UIViewController {
     func showLoginFailure(message: String) {
         let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+//        show(alertVC, sender: nil)
+        self.present(alertVC, animated: true, completion: nil)
     }
 
 

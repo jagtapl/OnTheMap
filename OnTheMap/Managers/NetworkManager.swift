@@ -24,13 +24,17 @@ class NetworkManager {
     
     enum Endpoints {
         static let baseURL = "https://onthemap-api.udacity.com/v1/session"
+        static let studentDataURL = "https://onthemap-api.udacity.com/v1/StudentLocation"
         
+        case getLatestStudentLocations
         case login
         case logout
         case webSignUp
         
         var stringValue: String {
             switch self {
+            case .getLatestStudentLocations:
+                return Endpoints.studentDataURL + "?order=-updatedAt&limit=100"
             case .login:
                 return Endpoints.baseURL + ""
             case .logout:
@@ -45,6 +49,53 @@ class NetworkManager {
         }
     }
     
+    //: Data api
+    // Get student locations data for latest 100 students
+    
+    func getLatestStudents(completed: @escaping (Result<[StudentInformation], OTMError>) -> Void) {
+        let url = Endpoints.getLatestStudentLocations.url
+
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed (.failure(.unableToComplete))
+                return
+            }
+            
+            guard let data = data else {
+                completed(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let studentLocations = try decoder.decode(StudentLocations.self, from: data)
+                print("decododed studentLocation instance")
+                print("count of studentLocations \(studentLocations.results.count)")
+                let studentArray: [StudentInformation] = studentLocations.results
+                completed(.success(studentArray))
+            } catch let DecodingError.keyNotFound(type, context) {
+                print("Type \(type) mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+                completed(.failure(.invalidFieldName))
+            } catch let DecodingError.typeMismatch(type, context) {
+                print("Type \(type) mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+                completed(.failure(.invalidValueType))
+            } catch {
+                completed(.failure(.invalidData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    //: Session api
     func getUserId() -> String {
         return Auth.loginResponse?.account.key ?? ""
     }
@@ -68,7 +119,7 @@ class NetworkManager {
 //        print("execute DELETE session request \(request)")
 
         taskSessionRequest(urlRequest: request, response: SessionResponse.self) { (response, error) in
-            if let response = response {
+            if let _ = response {
                 completion(true, nil)
             } else {
                 completion(false, error)
