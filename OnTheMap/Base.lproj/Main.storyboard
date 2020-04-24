@@ -205,12 +205,23 @@
                         <viewLayoutGuide key="safeArea" id="gYz-fa-rve"/>
                     </view>
                     <navigationItem key="navigationItem" id="hgh-Gm-7e8">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="sPj-3h-1jA"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="sPj-3h-1jA">
+                            <connections>
+                                <action selector="logoutTapped:" destination="VTy-5J-q4S" id="TYt-Fk-CXk"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="icon_addpin" id="2iU-dW-sP4"/>
-                            <barButtonItem title="Item" image="icon_refresh" id="25u-O1-4pP"/>
+                            <barButtonItem title="Item" image="icon_refresh" id="25u-O1-4pP">
+                                <connections>
+                                    <action selector="reloadTapped:" destination="VTy-5J-q4S" id="eZ0-GW-sbq"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="COX-cb-UpF" id="imd-2t-WSp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsS-eQ-M2y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,8 +231,9 @@
         <scene sceneID="F79-Wr-rsx">
             <objects>
                 <navigationController id="Nf8-b0-Kaa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="icon_listview-selected" id="92J-l5-EdJ"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" id="92J-l5-EdJ"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="7Eh-NF-o7m"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z1e-QM-5XM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -239,7 +251,7 @@
         <scene sceneID="fhR-jE-wJ6">
             <objects>
                 <navigationController id="QiU-5v-3hz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="icon_mapview-selected" id="wjT-qV-rcL"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_mapview-deselected" id="wjT-qV-rcL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QTR-5X-2ZT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -260,14 +272,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qch-1c-t89" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Rh2-l4-H94"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lkg-WI-n54">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="lkg-WI-n54">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Nf8-b0-Kaa" kind="relationship" relationship="viewControllers" id="egt-UZ-ZSu"/>
                         <segue destination="QiU-5v-3hz" kind="relationship" relationship="viewControllers" id="edU-Ud-aGa"/>
+                        <segue destination="Nf8-b0-Kaa" kind="relationship" relationship="viewControllers" id="dd8-s9-0js"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8w-Fn-t9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -277,8 +289,8 @@
     </scenes>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>
-        <image name="icon_listview-selected" width="75" height="50"/>
-        <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
