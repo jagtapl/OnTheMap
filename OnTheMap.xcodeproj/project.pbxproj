@@ -24,6 +24,8 @@
 		D14E0632244E913700413825 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E0631244E913700413825 /* LoginRequest.swift */; };
 		D155093E2452307500F6D68F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155093D2452307500F6D68F /* ListTableViewCell.swift */; };
 		D161B6222452628F00C34037 /* StudentAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161B6212452628F00C34037 /* StudentAnnotation.swift */; };
+		D161B6242453413200C34037 /* InfoPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161B6232453413200C34037 /* InfoPostViewController.swift */; };
+		D161B626245343D900C34037 /* InfoPostMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161B625245343D900C34037 /* InfoPostMapViewController.swift */; };
 		D1BA76FC244F1A1A00EF6615 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA76FB244F1A1A00EF6615 /* LoginResponse.swift */; };
 		D1BA76FE244F467B00EF6615 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA76FD244F467B00EF6615 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 		D14E0631244E913700413825 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		D155093D2452307500F6D68F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		D161B6212452628F00C34037 /* StudentAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAnnotation.swift; sourceTree = "<group>"; };
+		D161B6232453413200C34037 /* InfoPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPostViewController.swift; sourceTree = "<group>"; };
+		D161B625245343D900C34037 /* InfoPostMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPostMapViewController.swift; sourceTree = "<group>"; };
 		D1BA76FB244F1A1A00EF6615 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		D1BA76FD244F467B00EF6615 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,8 @@
 				D11BB6692450FC94001BDB9F /* MapViewController.swift */,
 				D11BB6672450F7A5001BDB9F /* ListViewController.swift */,
 				D14E05FD244E351A00413825 /* LoginViewController.swift */,
+				D161B6232453413200C34037 /* InfoPostViewController.swift */,
+				D161B625245343D900C34037 /* InfoPostMapViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -270,8 +276,10 @@
 				D14E05FA244E351A00413825 /* AppDelegate.swift in Sources */,
 				D11BB6682450F7A5001BDB9F /* ListViewController.swift in Sources */,
 				D11BB67024510E6A001BDB9F /* DataLoadingViewController.swift in Sources */,
+				D161B626245343D900C34037 /* InfoPostMapViewController.swift in Sources */,
 				D14E05FC244E351A00413825 /* SceneDelegate.swift in Sources */,
 				D11BB67724512C33001BDB9F /* UITableView+Ext.swift in Sources */,
+				D161B6242453413200C34037 /* InfoPostViewController.swift in Sources */,
 				D1BA76FC244F1A1A00EF6615 /* LoginResponse.swift in Sources */,
 				D1BA76FE244F467B00EF6615 /* ResultsViewController.swift in Sources */,
 				D155093E2452307500F6D68F /* ListTableViewCell.swift in Sources */,
