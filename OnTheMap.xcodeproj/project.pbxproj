@@ -23,6 +23,7 @@
 		D14E0630244E8C4E00413825 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E062F244E8C4E00413825 /* NetworkManager.swift */; };
 		D14E0632244E913700413825 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E0631244E913700413825 /* LoginRequest.swift */; };
 		D155093E2452307500F6D68F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155093D2452307500F6D68F /* ListTableViewCell.swift */; };
+		D161B6222452628F00C34037 /* StudentAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161B6212452628F00C34037 /* StudentAnnotation.swift */; };
 		D1BA76FC244F1A1A00EF6615 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA76FB244F1A1A00EF6615 /* LoginResponse.swift */; };
 		D1BA76FE244F467B00EF6615 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA76FD244F467B00EF6615 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		D14E062F244E8C4E00413825 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D14E0631244E913700413825 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		D155093D2452307500F6D68F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		D161B6212452628F00C34037 /* StudentAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAnnotation.swift; sourceTree = "<group>"; };
 		D1BA76FB244F1A1A00EF6615 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		D1BA76FD244F467B00EF6615 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D14E060E244E370400413825 /* StudentInformation.swift */,
+				D161B6212452628F00C34037 /* StudentAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				D14E05FE244E351A00413825 /* LoginViewController.swift in Sources */,
 				D14E0630244E8C4E00413825 /* NetworkManager.swift in Sources */,
 				D11BB67324512840001BDB9F /* OTMError.swift in Sources */,
+				D161B6222452628F00C34037 /* StudentAnnotation.swift in Sources */,
 				D11BB66D24510A66001BDB9F /* UIViewController+Ext.swift in Sources */,
 				D11BB66A2450FC94001BDB9F /* MapViewController.swift in Sources */,
 				D14E0632244E913700413825 /* LoginRequest.swift in Sources */,
