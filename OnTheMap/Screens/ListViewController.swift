@@ -28,10 +28,11 @@ class ListViewController: DataLoadingViewController {
         getStudents()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//    }
     
     @IBAction func reloadTapped(_ sender: Any) {
         print("reload button tapped to load students data")

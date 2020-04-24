@@ -11,6 +11,11 @@ import SafariServices
 
 extension UIViewController {
     
+    @IBAction func pinBarButtonTapped(_ sender: Any) {
+        let destVC = self.storyboard?.instantiateViewController(withIdentifier: "InfoPostViewController") as! InfoPostViewController
+        self.navigationController?.pushViewController(destVC, animated: true)
+    }
+    
     func presentSafariVC(with url: URL) {
         let safariVC = SFSafariViewController(url: url)
         safariVC.preferredBarTintColor = .systemGreen
