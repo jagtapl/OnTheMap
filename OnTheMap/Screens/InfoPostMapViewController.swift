@@ -28,7 +28,7 @@ class InfoPostMapViewController: UIViewController, MKMapViewDelegate {
         
         DispatchQueue.main.async {
             self.mapView.addAnnotation(self.userAnnotation)
-            var theRegion = MKCoordinateRegion(center: self.userAnnotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
+            let theRegion = MKCoordinateRegion(center: self.userAnnotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
             self.mapView.setRegion(theRegion, animated: true)
         }
     }
@@ -63,7 +63,8 @@ class InfoPostMapViewController: UIViewController, MKMapViewDelegate {
         
         // use that to update location and url and post student
         
-        print("get student information using key from account.key in the login response")
+        print("get student information using key from account.key \(NetworkManager.shared.getUserId()) in the login response")
+
         print("next post the student information to update the location and media url")
         
     }

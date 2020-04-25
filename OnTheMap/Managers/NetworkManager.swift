@@ -11,22 +11,25 @@ import Foundation
 
 class NetworkManager {
     static let shared = NetworkManager()
+    static var loginResponse: LoginResponse?
+    var studentArray: [StudentInformation] = []
 
     private init() {
         // to make sure only one instance is created
     }
 
-    struct Auth {
-        static var userId = 0
-        static var sessionId = ""
-        static var loginResponse: LoginResponse?
-    }
+//    struct Auth {
+//        static var userId = 0
+//        static var sessionId = ""
+//        static var loginResponse: LoginResponse?
+//    }
     
     enum Endpoints {
         static let baseURL = "https://onthemap-api.udacity.com/v1/session"
         static let studentDataURL = "https://onthemap-api.udacity.com/v1/StudentLocation"
         
         case getLatestStudentLocations
+        case getPublicUserData
         case login
         case logout
         case webSignUp
@@ -35,6 +38,8 @@ class NetworkManager {
             switch self {
             case .getLatestStudentLocations:
                 return Endpoints.studentDataURL + "?order=-updatedAt&limit=100"
+            case .getPublicUserData:
+                return "https://onthemap-api.udacity.com/v1/users/" + (loginResponse?.account.key)!
             case .login:
                 return Endpoints.baseURL + ""
             case .logout:
@@ -53,6 +58,13 @@ class NetworkManager {
     // Get student locations data for latest 100 students
     
     func getLatestStudents(completed: @escaping (Result<[StudentInformation], OTMError>) -> Void) {
+        
+        if studentArray.count > 0 {
+            completed(.success(studentArray))
+            return
+        }
+        
+        // fetch it from network as no local cache exists
         let url = Endpoints.getLatestStudentLocations.url
 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -78,6 +90,10 @@ class NetworkManager {
                 print("decododed studentLocation instance")
                 print("count of studentLocations \(studentLocations.results.count)")
                 let studentArray: [StudentInformation] = studentLocations.results
+                
+                // store local cache for future reuse
+                self.studentArray = studentArray
+                
                 completed(.success(studentArray))
             } catch let DecodingError.keyNotFound(type, context) {
                 print("Type \(type) mismatch:", context.debugDescription)
@@ -97,7 +113,7 @@ class NetworkManager {
     
     //: Session api
     func getUserId() -> String {
-        return Auth.loginResponse?.account.key ?? ""
+        return NetworkManager.loginResponse?.account.key ?? ""
     }
     
     func logout(completion: @escaping (Bool, Error?) -> Void) {
@@ -145,7 +161,7 @@ class NetworkManager {
         
         taskSessionRequest(urlRequest: request, response: LoginResponse.self) { (response, error) in
             if let response = response {
-                Auth.loginResponse = response
+                NetworkManager.loginResponse = response
                 completion(true, nil)
             } else {
                 completion(false, error)

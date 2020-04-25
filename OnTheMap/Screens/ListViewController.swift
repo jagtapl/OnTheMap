@@ -14,34 +14,26 @@ class ListViewController: DataLoadingViewController {
     
     @IBOutlet weak var studentTableView: UITableView!
     
-//    // MARK: Access to StudentInformation model
-//    var studentCache: [StudentInformation]! {
-//        let object = UIApplication.shared.delegate
-//        let appDelegate = object as! AppDelegate
-//        return appDelegate.studentCache
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.studentTableView.removeExcessCells()
         
         getStudents()
     }
-    
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: true)
-//    }
-    
+        
     @IBAction func reloadTapped(_ sender: Any) {
         print("reload button tapped to load students data")
         reloadStudents()
     }
     
     func reloadStudents() {
+        // remove from local 
         self.students.removeAll()
         self.studentTableView.reloadData()
+        
+        // remove from NetworkManager cache
+        NetworkManager.shared.studentArray.removeAll()
+
         getStudents()
     }
     

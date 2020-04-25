@@ -8,16 +8,7 @@
 
 import UIKit
 import MapKit
-/*
-    Tap On left bar button item
-        It should prompt for your login if you have already posted a pin
- 
-        Prompt = "You Have Already Posted a Student Location. Would You Like to Overwrite Your Current Location?"
-    
-        2 Buttons as Overwrite and Cancel
- 
-    
- */
+
 class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
 
     var students: [StudentInformation] = []
@@ -37,15 +28,19 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
     }
     
     func reloadStudents() {
-        
+      
+        // remove from local
         var annotations = [StudentAnnotation]()
         for std in self.students {
             let studentdAnnotation = StudentAnnotation(std)
             annotations.append(studentdAnnotation)
         }
         self.mapView.removeAnnotations(annotations)
-
+    
         self.students.removeAll()
+    
+        // remove from NetworkManager cache
+        NetworkManager.shared.studentArray.removeAll()
         
         getStudents()
     }
@@ -81,9 +76,9 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
                     }
                     
                     DispatchQueue.main.async {
-//                        self.mapView.isHidden = false
+                        self.mapView.isHidden = false
                         self.mapView.addAnnotations(annotations)
-//                        self.view.bringSubviewToFront(self.mapView)
+                        self.view.bringSubviewToFront(self.mapView)
                     }
                 }
                                 
