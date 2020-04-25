@@ -44,6 +44,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D10534A42454D01900BE014E /* GetStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetStudent.playground; sourceTree = "<group>"; };
+		D10534A52454D01900BE014E /* PutStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PutStudent.playground; sourceTree = "<group>"; };
+		D10534A62454D01900BE014E /* GetUserPublicData.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetUserPublicData.playground; sourceTree = "<group>"; };
+		D10534A72454D01900BE014E /* PostSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostSession.playground; sourceTree = "<group>"; };
+		D10534A82454D01900BE014E /* PostStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostStudent.playground; sourceTree = "<group>"; };
+		D10534A92454D01900BE014E /* DeleteSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DeleteSession.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D11BB6672450F7A5001BDB9F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D11BB6692450FC94001BDB9F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D11BB66C24510A66001BDB9F /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -82,6 +88,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D10534A32454CFD500BE014E /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				D10534A92454D01900BE014E /* DeleteSession.playground */,
+				D10534A42454D01900BE014E /* GetStudent.playground */,
+				D10534A62454D01900BE014E /* GetUserPublicData.playground */,
+				D10534A72454D01900BE014E /* PostSession.playground */,
+				D10534A82454D01900BE014E /* PostStudent.playground */,
+				D10534A52454D01900BE014E /* PutStudent.playground */,
+			);
+			name = Playgrounds;
+			sourceTree = "<group>";
+		};
 		D11BB66B24510A4D001BDB9F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +151,7 @@
 		D14E05ED244E351A00413825 = {
 			isa = PBXGroup;
 			children = (
+				D10534A32454CFD500BE014E /* Playgrounds */,
 				D14E05F8244E351A00413825 /* OnTheMap */,
 				D14E0616244E39F200413825 /* ModelForPlayGround */,
 				D14E05F7244E351A00413825 /* Products */,
