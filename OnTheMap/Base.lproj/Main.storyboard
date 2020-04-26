@@ -164,7 +164,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="icon_addpin" id="hvx-Wn-g3Y"/>
+                            <barButtonItem title="Item" image="icon_addpin" id="hvx-Wn-g3Y">
+                                <connections>
+                                    <action selector="pinBarButtonTapped:" destination="J64-lj-8Qh" id="rBQ-99-5td"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="icon_refresh" id="Tnz-ub-S7H">
                                 <connections>
                                     <action selector="reloadTapped:" destination="J64-lj-8Qh" id="qxe-WL-ZZX"/>
@@ -174,11 +178,135 @@
                     </navigationItem>
                     <connections>
                         <outlet property="studentTableView" destination="Ea1-ts-yUb" id="R3u-Tm-Q12"/>
+                        <segue destination="3Tu-tI-Pzk" kind="show" identifier="showInfoPostVC" id="Voy-nK-Py7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZmX-wl-cmx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4528.985507246377" y="-93.080357142857139"/>
+        </scene>
+        <!--Add Location-->
+        <scene sceneID="FtQ-rB-xFJ">
+            <objects>
+                <viewController storyboardIdentifier="InfoPostViewController" id="3Tu-tI-Pzk" customClass="InfoPostViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aeZ-nH-OO5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gOf-Hj-O5R">
+                                <rect key="frame" x="50" y="280" width="314" height="200"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IyK-Ff-r0q" userLabel="Location Text Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="WsJ-Rs-xYb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8B-cE-E3e" userLabel="Link Text Field">
+                                        <rect key="frame" x="0.0" y="75" width="314" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="VX5-zS-a29"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="url"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-X8-yYV">
+                                        <rect key="frame" x="0.0" y="150" width="314" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="xHH-Yh-JsT"/>
+                                        </constraints>
+                                        <state key="normal" title="FIND LOCATION"/>
+                                        <connections>
+                                            <action selector="findLocationButtonTapped:" destination="3Tu-tI-Pzk" eventType="touchUpInside" id="wnf-LL-nD0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="7eO-1J-8gX">
+                                <rect key="frame" x="87" y="102" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2gT-LA-e1q"/>
+                                    <constraint firstAttribute="height" constant="128" id="oYQ-t7-krn"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7eO-1J-8gX" firstAttribute="leading" secondItem="xZg-4z-CCX" secondAttribute="leading" constant="87" id="0DF-rC-o9c"/>
+                            <constraint firstItem="gOf-Hj-O5R" firstAttribute="top" secondItem="7eO-1J-8gX" secondAttribute="bottom" constant="50" id="2g5-vr-1K4"/>
+                            <constraint firstItem="xZg-4z-CCX" firstAttribute="trailing" secondItem="gOf-Hj-O5R" secondAttribute="trailing" constant="50" id="RK7-LC-qJA"/>
+                            <constraint firstItem="7eO-1J-8gX" firstAttribute="top" secondItem="xZg-4z-CCX" secondAttribute="top" constant="46" id="Ykl-3f-1pa"/>
+                            <constraint firstItem="gOf-Hj-O5R" firstAttribute="leading" secondItem="xZg-4z-CCX" secondAttribute="leading" constant="50" id="d8f-1u-NrL"/>
+                            <constraint firstItem="xZg-4z-CCX" firstAttribute="trailing" secondItem="7eO-1J-8gX" secondAttribute="trailing" constant="87" id="xVg-cC-iUq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xZg-4z-CCX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Location" id="DXj-Hn-8jj">
+                        <barButtonItem key="leftBarButtonItem" title="CANCEL" id="jIG-85-Qfy">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="3Tu-tI-Pzk" id="7IC-4S-T38"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="locationTextField" destination="IyK-Ff-r0q" id="Ju7-G8-aMa"/>
+                        <outlet property="urlTextField" destination="V8B-cE-E3e" id="3is-XT-PcH"/>
+                        <segue destination="gZb-dQ-6eH" kind="show" identifier="showInfoPostMapVC" id="9Fg-Z9-eVc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYk-nm-l6U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5946" y="260"/>
+        </scene>
+        <!--Info Post Map View Controller-->
+        <scene sceneID="CPb-j2-H8l">
+            <objects>
+                <viewController storyboardIdentifier="InfoPostMapViewController" id="gZb-dQ-6eH" customClass="InfoPostMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O7V-Ip-XLx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HQ9-OW-5qg">
+                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gZb-dQ-6eH" id="FZV-mg-U7r"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-Ez-cD2">
+                                <rect key="frame" x="50" y="659" width="314" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ELD-8F-dDH"/>
+                                </constraints>
+                                <state key="normal" title="FINISH"/>
+                                <connections>
+                                    <action selector="finishButtonTapped:" destination="gZb-dQ-6eH" eventType="touchUpInside" id="ybg-Ah-IGt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AO6-YZ-wAw" firstAttribute="trailing" secondItem="QiL-Ez-cD2" secondAttribute="trailing" constant="50" id="BlX-uQ-bxt"/>
+                            <constraint firstItem="AO6-YZ-wAw" firstAttribute="bottom" secondItem="QiL-Ez-cD2" secondAttribute="bottom" constant="50" id="F92-bR-5bg"/>
+                            <constraint firstItem="HQ9-OW-5qg" firstAttribute="top" secondItem="AO6-YZ-wAw" secondAttribute="top" id="FCj-8z-dzZ"/>
+                            <constraint firstItem="AO6-YZ-wAw" firstAttribute="bottom" secondItem="HQ9-OW-5qg" secondAttribute="bottom" id="jLs-mE-v37"/>
+                            <constraint firstItem="AO6-YZ-wAw" firstAttribute="trailing" secondItem="HQ9-OW-5qg" secondAttribute="trailing" id="ucn-fg-A3H"/>
+                            <constraint firstItem="HQ9-OW-5qg" firstAttribute="leading" secondItem="AO6-YZ-wAw" secondAttribute="leading" id="yPn-J5-y3x"/>
+                            <constraint firstItem="QiL-Ez-cD2" firstAttribute="leading" secondItem="AO6-YZ-wAw" secondAttribute="leading" constant="50" id="zTK-b1-BDN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AO6-YZ-wAw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WTC-Wo-QKd"/>
+                    <connections>
+                        <outlet property="mapView" destination="HQ9-OW-5qg" id="fjj-kh-Tlp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cK2-Ar-xpv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6868" y="260"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="IfM-Iw-Nca">
@@ -211,7 +339,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="icon_addpin" id="2iU-dW-sP4"/>
+                            <barButtonItem title="Item" image="icon_addpin" id="2iU-dW-sP4">
+                                <connections>
+                                    <action selector="pinBarButtonTapped:" destination="VTy-5J-q4S" id="anT-Sb-d9v"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="icon_refresh" id="25u-O1-4pP">
                                 <connections>
                                     <action selector="reloadTapped:" destination="VTy-5J-q4S" id="eZ0-GW-sbq"/>
@@ -221,6 +353,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="COX-cb-UpF" id="imd-2t-WSp"/>
+                        <segue destination="3Tu-tI-Pzk" kind="show" identifier="showInfoPostVC" id="XqV-Zu-kyI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsS-eQ-M2y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -293,6 +426,10 @@
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
+        <image name="icon_world" width="52" height="67"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Voy-nK-Py7"/>
+    </inferredMetricsTieBreakers>
 </document>

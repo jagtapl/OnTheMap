@@ -48,3 +48,19 @@ struct SessionResponse: Codable {
         case session
     }
 }
+
+// MARK: - Post Student Resonse
+struct PostStudentResponse: Codable {
+    let createdAt, objectID: String
+
+    enum CodingKeys: String, CodingKey {
+        case createdAt
+        case objectID = "objectId"
+    }
+}
+
+struct UserInfo : Codable {
+    let first_name : String
+    let last_name : String
+    let key : String
+}

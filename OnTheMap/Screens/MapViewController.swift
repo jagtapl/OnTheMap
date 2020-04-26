@@ -8,16 +8,7 @@
 
 import UIKit
 import MapKit
-/*
-    Tap On left bar button item
-        It should prompt for your login if you have already posted a pin
- 
-        Prompt = "You Have Already Posted a Student Location. Would You Like to Overwrite Your Current Location?"
-    
-        2 Buttons as Overwrite and Cancel
- 
-    
- */
+
 class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
 
     var students: [StudentInformation] = []
@@ -32,20 +23,23 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
     }
     
     @IBAction func reloadTapped(_ sender: Any) {
-        print("reload button tapped to load students data")
         reloadStudents()
     }
     
     func reloadStudents() {
-        
+      
+        // remove from local
         var annotations = [StudentAnnotation]()
         for std in self.students {
             let studentdAnnotation = StudentAnnotation(std)
             annotations.append(studentdAnnotation)
         }
         self.mapView.removeAnnotations(annotations)
-
+    
         self.students.removeAll()
+    
+        // remove from NetworkManager cache
+        NetworkManager.shared.studentArray.removeAll()
         
         getStudents()
     }
@@ -62,16 +56,10 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
                 
                 if students.isEmpty {
                     self.mapView.isHidden = true
-                    
                     let message = "No student locations data found. Something is wrong."
-                    DispatchQueue.main.async {
-                        let alertVC = UIAlertController(title: "No student data", message: message, preferredStyle: .alert)
-                        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alertVC, animated: true, completion: nil)
-                    }
+                    self.presentAlertOnMainThread(title: "No student data", message: message)
                     
                 } else {
-                    
                     self.students.append(contentsOf: students)
                     var annotations = [StudentAnnotation]()
                     
@@ -81,22 +69,16 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
                     }
                     
                     DispatchQueue.main.async {
-//                        self.mapView.isHidden = false
+                        self.mapView.isHidden = false
                         self.mapView.addAnnotations(annotations)
-//                        self.view.bringSubviewToFront(self.mapView)
+                        self.view.bringSubviewToFront(self.mapView)
                     }
                 }
                                 
             case .failure(let error):
                 
-                DispatchQueue.main.async {
-                    let alertVC = UIAlertController(title: "No student data", message: error.rawValue, preferredStyle: .alert)
-                    alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alertVC, animated: true, completion: nil)
-                }
-            
+                self.presentAlertOnMainThread(title: "No student data", message: error.rawValue)
             }
-            
         }
     }
     
@@ -125,26 +107,14 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
         if control == view.rightCalloutAccessoryView {
             if let mediaURL = view.annotation?.subtitle! {
                 guard let url = URL(string: mediaURL), (url.scheme != nil) else {
-                    print("media url is not valid \(mediaURL)")
-        
                     let message = "Student has invalid media url."
-                    DispatchQueue.main.async {
-                        let alertVC = UIAlertController(title: "Invalid URL", message: message, preferredStyle: .alert)
-                        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alertVC, animated: true, completion: nil)
-                    }
-        
+                    presentAlertOnMainThread(title: "Invalid URL", message: message)
                     return
                 }
         
                 // show media url using Safari VC
                 presentSafariVC(with: url)
-//                UIApplication.shared.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
-                
             }
         }
-        
     }
-    
-
 }

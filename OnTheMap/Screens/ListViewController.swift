@@ -14,33 +14,25 @@ class ListViewController: DataLoadingViewController {
     
     @IBOutlet weak var studentTableView: UITableView!
     
-//    // MARK: Access to StudentInformation model
-//    var studentCache: [StudentInformation]! {
-//        let object = UIApplication.shared.delegate
-//        let appDelegate = object as! AppDelegate
-//        return appDelegate.studentCache
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.studentTableView.removeExcessCells()
         
         getStudents()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
+        
     @IBAction func reloadTapped(_ sender: Any) {
-        print("reload button tapped to load students data")
         reloadStudents()
     }
     
     func reloadStudents() {
+        // remove from local 
         self.students.removeAll()
         self.studentTableView.reloadData()
+        
+        // remove from NetworkManager cache
+        NetworkManager.shared.studentArray.removeAll()
+
         getStudents()
     }
     
@@ -56,14 +48,9 @@ class ListViewController: DataLoadingViewController {
                 
                 if students.isEmpty {
                     self.studentTableView.isHidden = true
-                    
                     let message = "No student locations data found. Something is wrong."
-                    DispatchQueue.main.async {
-                        let alertVC = UIAlertController(title: "No student data", message: message, preferredStyle: .alert)
-                        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alertVC, animated: true, completion: nil)
-                    }
-                    
+                    self.presentAlertOnMainThread(title: "No student data", message: message)
+        
                 } else {
                     self.students.append(contentsOf: students)
                     DispatchQueue.main.async {
@@ -75,19 +62,10 @@ class ListViewController: DataLoadingViewController {
                                 
             case .failure(let error):
                 
-                DispatchQueue.main.async {
-                    let alertVC = UIAlertController(title: "No student data", message: error.rawValue, preferredStyle: .alert)
-                    alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alertVC, animated: true, completion: nil)
-                }
-            
+                self.presentAlertOnMainThread(title: "No student data", message: error.rawValue)
             }
-            
         }
     }
-    
-    
-    
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -100,11 +78,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = self.studentTableView.dequeueReusableCell(withIdentifier: "studentTableCell", for: indexPath) as! ListTableViewCell
         
         let student = self.students[indexPath.row]
-        
         cell.config(student)
-//        cell.textLabel?.text = student.firstName + " " + student.lastName
-//        cell.detailTextLabel?.text = student.mediaURL
-
         return cell
     }
     
@@ -113,18 +87,11 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let student = self.students[indexPath.row]
         
         guard let url = URL(string: student.mediaURL), (url.scheme != nil) else {
-            print("media url is not valid \(student.mediaURL)")
-            
             let message = "Student \(student.firstName) \(student.lastName) has invalid media url."
-            DispatchQueue.main.async {
-                let alertVC = UIAlertController(title: "Invalid URL", message: message, preferredStyle: .alert)
-                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alertVC, animated: true, completion: nil)
-            }
-            
+            self.presentAlertOnMainThread(title: "Invalid URL", message: message)
             return
         }
-                
+             
         // show media url using Safari VC
         presentSafariVC(with: url)
     }
