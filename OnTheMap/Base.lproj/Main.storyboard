@@ -193,30 +193,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gOf-Hj-O5R">
-                                <rect key="frame" x="50" y="280" width="314" height="200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gOf-Hj-O5R">
+                                <rect key="frame" x="50" y="224" width="314" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IyK-Ff-r0q" userLabel="Location Text Field">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="WsJ-Rs-xYb"/>
+                                            <constraint firstAttribute="height" constant="40" id="WsJ-Rs-xYb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8B-cE-E3e" userLabel="Link Text Field">
-                                        <rect key="frame" x="0.0" y="75" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="55" width="314" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="VX5-zS-a29"/>
+                                            <constraint firstAttribute="height" constant="40" id="VX5-zS-a29"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="url"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-X8-yYV">
-                                        <rect key="frame" x="0.0" y="150" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="110" width="314" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="xHH-Yh-JsT"/>
+                                            <constraint firstAttribute="height" constant="40" id="xHH-Yh-JsT"/>
                                         </constraints>
                                         <state key="normal" title="FIND LOCATION"/>
                                         <connections>
@@ -226,7 +226,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="7eO-1J-8gX">
-                                <rect key="frame" x="87" y="102" width="240" height="128"/>
+                                <rect key="frame" x="87" y="66" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="2gT-LA-e1q"/>
                                     <constraint firstAttribute="height" constant="128" id="oYQ-t7-krn"/>
@@ -236,9 +236,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="7eO-1J-8gX" firstAttribute="leading" secondItem="xZg-4z-CCX" secondAttribute="leading" constant="87" id="0DF-rC-o9c"/>
-                            <constraint firstItem="gOf-Hj-O5R" firstAttribute="top" secondItem="7eO-1J-8gX" secondAttribute="bottom" constant="50" id="2g5-vr-1K4"/>
+                            <constraint firstItem="gOf-Hj-O5R" firstAttribute="top" secondItem="7eO-1J-8gX" secondAttribute="bottom" constant="30" id="2g5-vr-1K4"/>
                             <constraint firstItem="xZg-4z-CCX" firstAttribute="trailing" secondItem="gOf-Hj-O5R" secondAttribute="trailing" constant="50" id="RK7-LC-qJA"/>
-                            <constraint firstItem="7eO-1J-8gX" firstAttribute="top" secondItem="xZg-4z-CCX" secondAttribute="top" constant="46" id="Ykl-3f-1pa"/>
+                            <constraint firstItem="7eO-1J-8gX" firstAttribute="top" secondItem="xZg-4z-CCX" secondAttribute="top" constant="10" id="Ykl-3f-1pa"/>
                             <constraint firstItem="gOf-Hj-O5R" firstAttribute="leading" secondItem="xZg-4z-CCX" secondAttribute="leading" constant="50" id="d8f-1u-NrL"/>
                             <constraint firstItem="xZg-4z-CCX" firstAttribute="trailing" secondItem="7eO-1J-8gX" secondAttribute="trailing" constant="87" id="xVg-cC-iUq"/>
                         </constraints>
