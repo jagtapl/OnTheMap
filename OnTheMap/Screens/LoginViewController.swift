@@ -28,22 +28,9 @@ class LoginViewController: UIViewController {
         loginButton.isEnabled = !loggingIn
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("view Did Apprear")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("view Did Load")
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("view Will Appear")
 
-        
         emailTextField.text = ""
         passwordTextField.text = ""
     }
@@ -75,16 +62,17 @@ class LoginViewController: UIViewController {
         if success {
             self.performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
-            showLoginFailure(message: error?.localizedDescription ?? "")
+//            showLoginFailure(message: error?.localizedDescription ?? "")
+            presentAlertOnMainThread(title: "Login Failed", message: error?.localizedDescription ?? "")
         }
     }
     
     func showLoginFailure(message: String) {
         let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertVC.modalPresentationStyle = .overFullScreen
+        alertVC.modalTransitionStyle = .crossDissolve
         self.present(alertVC, animated: true, completion: nil)
     }
-
-
 }
 

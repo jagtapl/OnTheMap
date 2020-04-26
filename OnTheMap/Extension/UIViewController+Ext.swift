@@ -11,6 +11,16 @@ import SafariServices
 
 extension UIViewController {
     
+    func presentAlertOnMainThread(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alertVC.modalPresentationStyle = .overFullScreen
+            alertVC.modalTransitionStyle = .crossDissolve
+            self.present(alertVC, animated: true)
+        }
+    }
+    
     @IBAction func pinBarButtonTapped(_ sender: Any) {
         let destVC = self.storyboard?.instantiateViewController(withIdentifier: "InfoPostViewController") as! InfoPostViewController
         self.navigationController?.pushViewController(destVC, animated: true)
@@ -32,7 +42,8 @@ extension UIViewController {
         if success {
             self.dismiss(animated: true, completion: nil)
         } else {
-            showLogoutFailure(message: error?.localizedDescription ?? "")
+//            showLogoutFailure(message: error?.localizedDescription ?? "")
+            presentAlertOnMainThread(title: "Logout Failed", message: error?.localizedDescription ?? "")
         }
     }
     

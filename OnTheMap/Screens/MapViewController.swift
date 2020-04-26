@@ -23,7 +23,6 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
     }
     
     @IBAction func reloadTapped(_ sender: Any) {
-        print("reload button tapped to load students data")
         reloadStudents()
     }
     
@@ -57,16 +56,10 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
                 
                 if students.isEmpty {
                     self.mapView.isHidden = true
-                    
                     let message = "No student locations data found. Something is wrong."
-                    DispatchQueue.main.async {
-                        let alertVC = UIAlertController(title: "No student data", message: message, preferredStyle: .alert)
-                        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alertVC, animated: true, completion: nil)
-                    }
+                    self.presentAlertOnMainThread(title: "No student data", message: message)
                     
                 } else {
-                    
                     self.students.append(contentsOf: students)
                     var annotations = [StudentAnnotation]()
                     
@@ -84,14 +77,8 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
                                 
             case .failure(let error):
                 
-                DispatchQueue.main.async {
-                    let alertVC = UIAlertController(title: "No student data", message: error.rawValue, preferredStyle: .alert)
-                    alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alertVC, animated: true, completion: nil)
-                }
-            
+                self.presentAlertOnMainThread(title: "No student data", message: error.rawValue)
             }
-            
         }
     }
     
@@ -120,26 +107,14 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
         if control == view.rightCalloutAccessoryView {
             if let mediaURL = view.annotation?.subtitle! {
                 guard let url = URL(string: mediaURL), (url.scheme != nil) else {
-                    print("media url is not valid \(mediaURL)")
-        
                     let message = "Student has invalid media url."
-                    DispatchQueue.main.async {
-                        let alertVC = UIAlertController(title: "Invalid URL", message: message, preferredStyle: .alert)
-                        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alertVC, animated: true, completion: nil)
-                    }
-        
+                    presentAlertOnMainThread(title: "Invalid URL", message: message)
                     return
                 }
         
                 // show media url using Safari VC
                 presentSafariVC(with: url)
-//                UIApplication.shared.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
-                
             }
         }
-        
     }
-    
-
 }

@@ -9,13 +9,6 @@
 import UIKit
 import MapKit
 
-/*
- Use geocodeAddressString to find geocode.
- Completion handler will go to CLPlacemark and segue to a view where text can be entered.
- Create a submit function that use global session variable, CLPlacemark and text to make a posting and return true/false.
- Completion handler will dismiss the view if true.
- 
- */
 class InfoPostViewController: DataLoadingViewController {
 
     @IBOutlet weak var locationTextField: UITextField!
@@ -34,21 +27,22 @@ class InfoPostViewController: DataLoadingViewController {
     
     @IBAction func findLocationButtonTapped(_ sender: Any) {
         guard let location = locationTextField.text else {
-            print("display alert message that location can not be blank")
-            return
-        }
-        // check
-        
-        guard let _ = URL(string: urlTextField.text!) else {
-            print("display aleart message that url is invalid")
+            presentAlertOnMainThread(title: "Enter location", message: "user location can not be empty.")
             return
         }
         
-        print("find geolocation for user specified location \(location)")
+        let enteredURL = "https://" + urlTextField.text!
+        
+        guard let url = URL(string: enteredURL), (url.scheme != nil) else {
+            presentAlertOnMainThread(title: "Enter valid URL", message: "user media url can not be wrong.")
+            return
+        }
+        
         getCoordinate(addressString: location) { (clLocationCoordinate2D, error) in
             
             if let error = error {
-                print("place returned invalid geolocation with error as \(error)")
+                let message = "received invalid geolocation with error as \(error.localizedDescription)"
+                self.presentAlertOnMainThread(title: "Geolocation error", message: message)
             }
             
             // add this location to the map VC loaded from storyboard
@@ -56,7 +50,7 @@ class InfoPostViewController: DataLoadingViewController {
             let annotation = MKPointAnnotation()
             annotation.coordinate = clLocationCoordinate2D
             annotation.title = location
-            annotation.subtitle = self.urlTextField.text!
+            annotation.subtitle = enteredURL
             destVC.userAnnotation = annotation
             
             // push that VC on the navigation
@@ -81,17 +75,3 @@ class InfoPostViewController: DataLoadingViewController {
         }
     }
 }
-
-//        CLGeocoder().geocodeAddressString(location) { (placemark, error) in
-//            // [CLPlacemark]
-//            // Error
-//            if let placemark = placemark {
-//                print("success : \(placemark)")
-//                print("longitude \(placemark.first?.location?.coordinate.longitude)")
-//                print("lattitude \(placemark.first?.location?.coordinate.latitude)")
-//
-//
-//            } else {
-//                print ("failed geocoding of location with error as \(String(describing: error))")
-//            }
-//        }

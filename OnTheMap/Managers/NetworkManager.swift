@@ -19,8 +19,6 @@ class NetworkManager {
     private init() {
         // to make sure only one instance is created
     }
-
-
     
     enum Endpoints {
         static let baseURL = "https://onthemap-api.udacity.com/v1"
@@ -86,8 +84,6 @@ class NetworkManager {
                 }
                 return
             }
-            
-            print(String(data: data, encoding: .utf8)!)
 
             do {
                 let decoder = JSONDecoder()
@@ -134,8 +130,6 @@ class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let studentLocations = try decoder.decode(StudentLocations.self, from: data)
-                print("decododed studentLocation instance")
-                print("count of studentLocations \(studentLocations.results.count)")
                 let studentArray: [StudentInformation] = studentLocations.results
                 
                 // store local cache for future reuse
@@ -170,8 +164,6 @@ class NetworkManager {
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        print("execute Get User Public Data session request \(request)")
-        
         taskSessionRequest(urlRequest: request, response: UserInfo.self) { (response, error) in
             if let response = response {
                 NetworkManager.userInfo = response
@@ -198,8 +190,6 @@ class NetworkManager {
           request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
         }
 
-//        print("execute DELETE session request \(request)")
-
         taskSessionRequest(urlRequest: request, response: SessionResponse.self) { (response, error) in
             if let _ = response {
                 completion(true, nil)
@@ -222,9 +212,7 @@ class NetworkManager {
         let body = udacityLogin
         let encoder = JSONEncoder()
         request.httpBody = try! encoder.encode(body)
-        
-//        print("execute POST session request \(request)")
-        
+                
         taskSessionRequest(urlRequest: request, response: LoginResponse.self) { (response, error) in
             if let response = response {
                 NetworkManager.loginResponse = response
@@ -247,7 +235,6 @@ class NetworkManager {
             
             let range = (5..<data.count)
             let newData = data.subdata(in: range)
-//            print(String(data: newData, encoding: .utf8)!)
 
             do {
                 let decoder = JSONDecoder()

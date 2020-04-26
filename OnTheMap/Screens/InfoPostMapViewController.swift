@@ -46,43 +46,34 @@ class InfoPostMapViewController: UIViewController, MKMapViewDelegate {
         return pinView
     }
     
-    /*
-        use network manager to submit the location to server
-        use the account key from the login response
-        get the user information using key (get public api)
-        use that to update location and url and post student
-    */
     
     @IBAction func finishButtonTapped(_ sender: Any) {
         
         let userId = NetworkManager.shared.getUserId()
-        print("get student information using key from account.key \(userId) in the login response")
+        //get student information using key from account.key \(userId) in the login response"
         
         NetworkManager.shared.getUserPublicData(userKey: userId) { (success, error) in
             if success {
-                print("Success to get public user data \(String(describing: NetworkManager.userInfo))")
 
                 if let userInfo = NetworkManager.userInfo {
 
                     let mapString:String = (self.userAnnotation.title)!!
                     let mediaUrl:String = (self.userAnnotation.subtitle)!!
                     
-                    print("next post the student information to update the location and media url")
-
                     let postStudent = StudentInformation(firstName: userInfo.first_name, lastName: userInfo.last_name, longitude: self.userAnnotation.coordinate.longitude, latitude: self.userAnnotation.coordinate.latitude, mapString: mapString, mediaURL: mediaUrl, uniqueKey: userId, objectID: "", createdAt: "", updatedAt: "")
                     
-                    print(postStudent)
                     NetworkManager.shared.postStudentLocation(location: postStudent) { (success, error) in
                         if success {
-                            print("success in updating user location and media url")
                             self.navigationController?.popToRootViewController(animated: true)
                         } else {
-                            print("failed to post updated location and media url for logged in user")
+                            let message = error?.localizedDescription ?? "failed to student location"
+                            self.presentAlertOnMainThread(title: "Failed to update student", message: message)
                         }
                     }
                 }
             } else {
-                print("Failed to get public userd data")
+                let message = error?.localizedDescription ?? "failed to get public user data"
+                self.presentAlertOnMainThread(title: "Failed to get public user data", message: message)
             }
         }
 
