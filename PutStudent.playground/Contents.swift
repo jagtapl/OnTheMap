@@ -12,9 +12,6 @@ var str = "Update existing student using objectID"
 
 var urlString = ""
 
-//bqeq15a137i05qjse4l0
-//objectID: "bqepsoi137i05qjse4kg"
-//objectID: "bqe4gcm22tnh9563u8g0"
 
 // Add new student location
 urlString = "https://onthemap-api.udacity.com/v1/StudentLocation/bqeq15a137i05qjse4l0"
