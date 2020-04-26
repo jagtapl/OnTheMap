@@ -39,7 +39,7 @@ class InfoPostViewController: DataLoadingViewController {
         }
         // check
         
-        guard let url = URL(string: urlTextField.text!) else {
+        guard let _ = URL(string: urlTextField.text!) else {
             print("display aleart message that url is invalid")
             return
         }
@@ -56,6 +56,7 @@ class InfoPostViewController: DataLoadingViewController {
             let annotation = MKPointAnnotation()
             annotation.coordinate = clLocationCoordinate2D
             annotation.title = location
+            annotation.subtitle = self.urlTextField.text!
             destVC.userAnnotation = annotation
             
             // push that VC on the navigation
@@ -67,7 +68,6 @@ class InfoPostViewController: DataLoadingViewController {
     func getCoordinate( addressString : String, completionHandler: @escaping(CLLocationCoordinate2D, Error?) -> Void ) {
         
         let geocoder = CLGeocoder()
-    
         geocoder.geocodeAddressString(addressString) { (placemarks, error) in
             if error == nil {
                 if let placemark = placemarks?[0] {
@@ -77,15 +77,8 @@ class InfoPostViewController: DataLoadingViewController {
                     return
                 }
             }
-                
             completionHandler(kCLLocationCoordinate2DInvalid, error as Error?)
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // update the MKAnnotation in the destination VC
-
-        
     }
 }
 

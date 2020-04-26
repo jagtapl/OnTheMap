@@ -26,12 +26,14 @@ let body =
     "mapString": "Chicago, Illinois",
     "mediaURL": "lalit",
     "uniqueKey": "007",
-    "objectID": "bqe2voh0s05mpe5senl0",
-    "createdAt": "2020-04-19T11:02:58.216Z",
-    "updatedAt": "2020-04-19T11:02:58.216Z"
+    "objectID": "",
+    "createdAt": "",
+    "updatedAt": ""
 }
 """
-
+//    "objectID": "bqe2voh0s05mpe5senl0",
+//"createdAt": "2020-04-19T11:02:58.216Z",
+//"updatedAt": "2020-04-19T11:02:58.216Z"
 print(body.data(using: .utf8))
 
 
@@ -61,12 +63,11 @@ let task = session.dataTask(with: request) { data, response, error in
     }
     
     print(response)
-    if let mimeType = response.mimeType, mimeType == "application/json",
-        let data = data,
-        let dataString = String(data: data, encoding: .utf8) {
-        print("received data: \(dataString)")
-
-    }
+//    if let mimeType = response.mimeType, mimeType == "application/json",
+//        let data = data,
+//        let dataString = String(data: data, encoding: .utf8) {
+//        print("received data: \(dataString)")
+//    }
 }
 task.resume()
 

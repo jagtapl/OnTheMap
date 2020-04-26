@@ -12,38 +12,39 @@ import Foundation
 class NetworkManager {
     static let shared = NetworkManager()
     static var loginResponse: LoginResponse?
+    static var userInfo: UserInfo?
+
     var studentArray: [StudentInformation] = []
 
     private init() {
         // to make sure only one instance is created
     }
 
-//    struct Auth {
-//        static var userId = 0
-//        static var sessionId = ""
-//        static var loginResponse: LoginResponse?
-//    }
+
     
     enum Endpoints {
-        static let baseURL = "https://onthemap-api.udacity.com/v1/session"
+        static let baseURL = "https://onthemap-api.udacity.com/v1"
         static let studentDataURL = "https://onthemap-api.udacity.com/v1/StudentLocation"
         
+        case postStudentLocation
         case getLatestStudentLocations
-        case getPublicUserData
+        case getPublicUserData(String)
         case login
         case logout
         case webSignUp
         
         var stringValue: String {
             switch self {
+            case .postStudentLocation:
+                return Endpoints.baseURL + "/StudentLocation"
             case .getLatestStudentLocations:
-                return Endpoints.studentDataURL + "?order=-updatedAt&limit=100"
-            case .getPublicUserData:
-                return "https://onthemap-api.udacity.com/v1/users/" + (loginResponse?.account.key)!
+                return Endpoints.baseURL + "/StudentLocation" + "?order=-updatedAt&limit=100"
+            case .getPublicUserData(let userId):
+                return Endpoints.baseURL + "/users/" + userId
             case .login:
-                return Endpoints.baseURL + ""
+                return Endpoints.baseURL + "/session"
             case .logout:
-                return Endpoints.baseURL + ""
+                return Endpoints.baseURL + "/session"
             case .webSignUp:
                 return "https://auth.udacity.com/sign-up"
             }
@@ -54,8 +55,54 @@ class NetworkManager {
         }
     }
     
-    //: Data api
+    // MARK: - Data api
     // Get student locations data for latest 100 students
+    func postStudentLocation(location: StudentInformation, completion: @escaping (Bool, Error?) -> Void) {
+
+        var request = URLRequest(url: Endpoints.postStudentLocation.url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let encoder = JSONEncoder()
+        request.httpBody = try! encoder.encode(location)
+        
+        print("execute post User Public Data session request \(request)")
+        
+        taskDataRequest(urlRequest: request, response: PostStudentResponse.self) { (response, error) in
+            if error != nil {
+                completion(false, error)
+            } else {
+                completion(true, nil)
+            }
+        }
+    }
+    
+    func taskDataRequest<ResponseType: Decodable>(urlRequest: URLRequest, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            
+            print(String(data: data, encoding: .utf8)!)
+
+            do {
+                let decoder = JSONDecoder()
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async {
+                   completion(responseObject, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
+    }
     
     func getLatestStudents(completed: @escaping (Result<[StudentInformation], OTMError>) -> Void) {
         
@@ -111,9 +158,28 @@ class NetworkManager {
         task.resume()
     }
     
-    //: Session api
+    // MARK: - Session api
     func getUserId() -> String {
         return NetworkManager.loginResponse?.account.key ?? ""
+    }
+    
+    func getUserPublicData(userKey: String, completion: @escaping (Bool, Error?) -> Void) {
+
+        var request = URLRequest(url: Endpoints.getPublicUserData(userKey).url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        print("execute Get User Public Data session request \(request)")
+        
+        taskSessionRequest(urlRequest: request, response: UserInfo.self) { (response, error) in
+            if let response = response {
+                NetworkManager.userInfo = response
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        }
     }
     
     func logout(completion: @escaping (Bool, Error?) -> Void) {

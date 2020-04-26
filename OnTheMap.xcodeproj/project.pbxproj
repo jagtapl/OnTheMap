@@ -44,11 +44,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D10534A42454D01900BE014E /* GetStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetStudent.playground; sourceTree = "<group>"; };
-		D10534A52454D01900BE014E /* PutStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PutStudent.playground; sourceTree = "<group>"; };
-		D10534A62454D01900BE014E /* GetUserPublicData.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetUserPublicData.playground; sourceTree = "<group>"; };
-		D10534A72454D01900BE014E /* PostSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostSession.playground; sourceTree = "<group>"; };
-		D10534A82454D01900BE014E /* PostStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostStudent.playground; sourceTree = "<group>"; };
+		D10534A42454D01900BE014E /* GetStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetStudent.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D10534A52454D01900BE014E /* PutStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PutStudent.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D10534A62454D01900BE014E /* GetUserPublicData.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GetUserPublicData.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D10534A72454D01900BE014E /* PostSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostSession.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D10534A82454D01900BE014E /* PostStudent.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostStudent.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D10534A92454D01900BE014E /* DeleteSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DeleteSession.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D11BB6672450F7A5001BDB9F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D11BB6692450FC94001BDB9F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
