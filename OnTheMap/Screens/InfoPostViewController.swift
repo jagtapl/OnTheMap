@@ -43,6 +43,7 @@ class InfoPostViewController: DataLoadingViewController {
             if let error = error {
                 let message = "received invalid geolocation with error as \(error.localizedDescription)"
                 self.presentAlertOnMainThread(title: "Geolocation error", message: message)
+                return
             }
             
             // add this location to the map VC loaded from storyboard
