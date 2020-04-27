@@ -9,15 +9,22 @@
 import UIKit
 import MapKit
 
-class InfoPostViewController: DataLoadingViewController {
+class InfoPostViewController: DataLoadingViewController, UITextFieldDelegate {
 
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        locationTextField.delegate = self
+        urlTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -62,12 +69,14 @@ class InfoPostViewController: DataLoadingViewController {
 
     func getCoordinate( addressString : String, completionHandler: @escaping(CLLocationCoordinate2D, Error?) -> Void ) {
         
+        activityIndicator.startAnimating()
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(addressString) { (placemarks, error) in
             if error == nil {
                 if let placemark = placemarks?[0] {
                     let location = placemark.location!
-                        
+                    
+                    self.activityIndicator.stopAnimating()
                     completionHandler(location.coordinate, nil)
                     return
                 }

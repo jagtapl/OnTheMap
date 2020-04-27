@@ -42,15 +42,7 @@ extension UIViewController {
         if success {
             self.dismiss(animated: true, completion: nil)
         } else {
-//            showLogoutFailure(message: error?.localizedDescription ?? "")
             presentAlertOnMainThread(title: "Logout Failed", message: error?.localizedDescription ?? "")
         }
     }
-    
-    func showLogoutFailure(message: String) {
-        let alertVC = UIAlertController(title: "Logout Failed", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
-    }
-
 }

@@ -10,7 +10,9 @@ import UIKit
 
 class ListViewController: DataLoadingViewController {
     
-    var students: [StudentInformation] = []
+    var students: [StudentInformation] {
+        return NetworkManager.shared.studentArray
+    }
     
     @IBOutlet weak var studentTableView: UITableView!
     
@@ -26,13 +28,12 @@ class ListViewController: DataLoadingViewController {
     }
     
     func reloadStudents() {
-        // remove from local 
-        self.students.removeAll()
-        self.studentTableView.reloadData()
-        
         // remove from NetworkManager cache
         NetworkManager.shared.studentArray.removeAll()
 
+        // remove from local 
+        self.studentTableView.reloadData()
+        
         getStudents()
     }
     
@@ -52,7 +53,6 @@ class ListViewController: DataLoadingViewController {
                     self.presentAlertOnMainThread(title: "No student data", message: message)
         
                 } else {
-                    self.students.append(contentsOf: students)
                     DispatchQueue.main.async {
                         self.studentTableView.isHidden = false
                         self.studentTableView.reloadData()

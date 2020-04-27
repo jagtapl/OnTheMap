@@ -31,7 +31,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UKq-ae-2ST" userLabel="Email Text Field">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ab3-8N-T7Q" userLabel="Password Text Field">
                                                 <rect key="frame" x="0.0" y="54" width="314" height="34"/>
@@ -46,7 +46,7 @@
                                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8BJ-cA-yXa"/>
                                                 </connections>
                                             </button>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="cj9-UH-rdX">
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="cj9-UH-rdX">
                                                 <rect key="frame" x="0.0" y="158" width="314" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
@@ -116,25 +116,40 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="6YB-nM-j0H">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="6YB-nM-j0H">
                                                     <rect key="frame" x="20" y="23" width="43" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="43" id="pNS-1T-Dp0"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wh-Sr-HSk" userLabel="student Name Label">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wh-Sr-HSk" userLabel="student Name Label">
                                                     <rect key="frame" x="71" y="17" width="316" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="3gz-8E-Wdd"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-wu-wTE" userLabel="student Media Url Label">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-wu-wTE" userLabel="student Media Url Label">
                                                     <rect key="frame" x="71" y="54" width="316" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="s5w-wu-wTE" firstAttribute="leading" secondItem="8wh-Sr-HSk" secondAttribute="leading" id="68E-vG-6dr"/>
+                                                <constraint firstItem="s5w-wu-wTE" firstAttribute="top" secondItem="8wh-Sr-HSk" secondAttribute="bottom" constant="8" id="6HZ-Y8-iff"/>
+                                                <constraint firstItem="8wh-Sr-HSk" firstAttribute="leading" secondItem="6YB-nM-j0H" secondAttribute="trailing" constant="8" id="6x0-6c-Pru"/>
+                                                <constraint firstItem="6YB-nM-j0H" firstAttribute="leading" secondItem="cTc-2s-hS4" secondAttribute="leadingMargin" id="Hi1-1g-sNc"/>
+                                                <constraint firstItem="8wh-Sr-HSk" firstAttribute="top" secondItem="cTc-2s-hS4" secondAttribute="topMargin" constant="6" id="N6f-PY-s6R"/>
+                                                <constraint firstItem="s5w-wu-wTE" firstAttribute="trailing" secondItem="8wh-Sr-HSk" secondAttribute="trailing" id="QQG-G9-PWM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="s5w-wu-wTE" secondAttribute="bottom" constant="6" id="XnQ-yh-G37"/>
+                                                <constraint firstItem="6YB-nM-j0H" firstAttribute="centerY" secondItem="cTc-2s-hS4" secondAttribute="centerY" id="d0p-4a-Crt"/>
+                                                <constraint firstItem="6YB-nM-j0H" firstAttribute="top" secondItem="cTc-2s-hS4" secondAttribute="topMargin" constant="12" id="nnV-hr-U4q"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="8wh-Sr-HSk" secondAttribute="trailing" constant="7" id="zgI-kF-tmh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="studentMediaUrlLabel" destination="s5w-wu-wTE" id="wKt-FM-Y2t"/>
@@ -202,7 +217,7 @@
                                             <constraint firstAttribute="height" constant="40" id="WsJ-Rs-xYb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8B-cE-E3e" userLabel="Link Text Field">
                                         <rect key="frame" x="0.0" y="55" width="314" height="40"/>
@@ -210,7 +225,7 @@
                                             <constraint firstAttribute="height" constant="40" id="VX5-zS-a29"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="url"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="url"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-X8-yYV">
                                         <rect key="frame" x="0.0" y="110" width="314" height="40"/>
@@ -225,6 +240,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZiX-7Z-1wV">
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="7eO-1J-8gX">
                                 <rect key="frame" x="87" y="66" width="240" height="128"/>
                                 <constraints>
@@ -252,6 +271,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZiX-7Z-1wV" id="1d8-wg-85Z"/>
                         <outlet property="locationTextField" destination="IyK-Ff-r0q" id="Ju7-G8-aMa"/>
                         <outlet property="urlTextField" destination="V8B-cE-E3e" id="3is-XT-PcH"/>
                         <segue destination="gZb-dQ-6eH" kind="show" identifier="showInfoPostMapVC" id="9Fg-Z9-eVc"/>

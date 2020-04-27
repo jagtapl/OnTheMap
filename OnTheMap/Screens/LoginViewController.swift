@@ -8,13 +8,24 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     func setLogingIn(_ loggingIn: Bool) {
         if loggingIn {
@@ -39,7 +50,8 @@ class LoginViewController: UIViewController {
         setLogingIn(true)
         
         if ((self.emailTextField.text?.count == 0) || (self.passwordTextField.text?.count == 0)) {
-            showLoginFailure(message: "You must provide login user and password")
+            let message = "You must provide login user id and password"
+            presentAlertOnMainThread(title: "Login Failed", message: message)
             setLogingIn(false)
             return
         }
@@ -62,17 +74,8 @@ class LoginViewController: UIViewController {
         if success {
             self.performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
-//            showLoginFailure(message: error?.localizedDescription ?? "")
             presentAlertOnMainThread(title: "Login Failed", message: error?.localizedDescription ?? "")
         }
-    }
-    
-    func showLoginFailure(message: String) {
-        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        alertVC.modalPresentationStyle = .overFullScreen
-        alertVC.modalTransitionStyle = .crossDissolve
-        self.present(alertVC, animated: true, completion: nil)
     }
 }
 

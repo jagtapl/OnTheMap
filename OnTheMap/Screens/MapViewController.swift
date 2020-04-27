@@ -11,7 +11,9 @@ import MapKit
 
 class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
 
-    var students: [StudentInformation] = []
+    var students: [StudentInformation] {
+        return NetworkManager.shared.studentArray
+    }
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -35,9 +37,7 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
             annotations.append(studentdAnnotation)
         }
         self.mapView.removeAnnotations(annotations)
-    
-        self.students.removeAll()
-    
+        
         // remove from NetworkManager cache
         NetworkManager.shared.studentArray.removeAll()
         
@@ -60,7 +60,6 @@ class MapViewController: DataLoadingViewController,  MKMapViewDelegate {
                     self.presentAlertOnMainThread(title: "No student data", message: message)
                     
                 } else {
-                    self.students.append(contentsOf: students)
                     var annotations = [StudentAnnotation]()
                     
                     for std in self.students {
